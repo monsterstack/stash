@@ -1,0 +1,7 @@
+{
+    "stash": {
+        "type": "memory",
+        "host": "localhost",
+        "port": 9292
+    }
+}
