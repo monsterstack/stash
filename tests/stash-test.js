@@ -4,11 +4,8 @@
  * Test Stash 
  * Use in-memory transport. 
  * @see ./config/default.json
- * 
- * @param done {Function}
- * @returns {Error}
  */
-describe('stash-test', (done) => {
+describe('stash-test', () => {
     let stash = null;
 
     /**
