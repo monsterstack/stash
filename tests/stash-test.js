@@ -1,6 +1,10 @@
 'use strict';
 
-
+/**
+ * Test Stash 
+ * Use in-memory transport. 
+ * @see ./config/default.json
+ */
 describe('stash-test', (done) => {
     let stash = null;
 
@@ -10,7 +14,7 @@ describe('stash-test', (done) => {
     });
 
     it('log error', (done) => {
-        console.stash('Hello');
+        console.stash('Hello World');
         done();
     });
 
