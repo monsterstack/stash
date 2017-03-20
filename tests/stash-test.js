@@ -4,14 +4,17 @@
  * Test Stash 
  * Use in-memory transport. 
  * @see ./config/default.json
+ * 
+ * @param done {Function}
+ * @returns {Error}
  */
 describe('stash-test', (done) => {
     let stash = null;
 
     /**
      * Create Log Stash Client
-     * @params done {function}
-     * @returns {Void}
+     * @params done {Function}
+     * @returns {Error}
      */
     before((done) => {
         stash = require('../index').stash;
@@ -20,8 +23,8 @@ describe('stash-test', (done) => {
 
     /**
      * Log Error Test
-     * @param done {function}
-     * @returns {Void}
+     * @param done {Function}
+     * @returns {Error}
      */
     it('log error', (done) => {
         console.stash('Hello World');
@@ -30,8 +33,8 @@ describe('stash-test', (done) => {
 
     /**
      * Clean up after tests
-     * @param done {function}
-     * @returns {Void}
+     * @param done {Function}
+     * @returns {Error}
      */
     after((done) => {
         done();

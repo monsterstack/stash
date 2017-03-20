@@ -13,10 +13,10 @@ const stash = new Logstash({
 
 /**
  * Generate a Stash Log
- * @param level {string}
- * @param message {string}
+ * @param level {String}
+ * @param message {String}
  * 
- * @returns log {object}
+ * @returns log {Object}
  */
 const generateStashLog = (level, message) => {
   return {
@@ -28,10 +28,10 @@ const generateStashLog = (level, message) => {
 
 /**
  * Stash a Log
- * @param level {string}
- * @param {message}
+ * @param level {String}
+ * @param message {String}
  * 
- * @return log {obj}
+ * @return log {Object}
  */
 console.stash = (level, message) => {
   debug(`Sending to stash ${message}`);
