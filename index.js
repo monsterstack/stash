@@ -3,6 +3,7 @@ const debug = require('debug')('stash-log');
 const config = require('config');
 const Logstash = require('logstash-client');
 
+// LogStash Client
 const stash = new Logstash({
   type: config.stash.type,
   host: config.stash.host,
@@ -10,13 +11,31 @@ const stash = new Logstash({
   maxQueueSize: 1000
 });
 
-console.stash = (level, message) => {
-  debug(`Sending to stash ${message}`);
-  stash.send({
-    '@timestamp': new Date(),
+/**
+ * Generate a Stash Log
+ * @param level {string}
+ * @param message {string}
+ * 
+ * @returns log {object}
+ */
+const generateStashLog = (level, message) => {
+  return {
+    '@timestamp':  new Date(),
     'message': message,
     'level': level
-  }, (err) => {
+  };
+}
+
+/**
+ * Stash a Log
+ * @param level {string}
+ * @param {message}
+ * 
+ * @return log {obj}
+ */
+console.stash = (level, message) => {
+  debug(`Sending to stash ${message}`);
+  stash.send(generateStashLog(level, message), (err) => {
     if(err) {
       console.log(err);
       debug('error writing to stash');
@@ -24,4 +43,5 @@ console.stash = (level, message) => {
   });
 }
 
+// Public
 module.exports = stash;
